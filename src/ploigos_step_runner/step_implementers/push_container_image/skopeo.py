@@ -182,6 +182,13 @@ class Skopeo(StepImplementer):
                 containers_config_tls_verify=dest_tls_verify
             )
 
+            print('Step Runner params !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+            print(f"--src-tls-verify={str(source_tls_verify).lower()}")
+            print(f"--dest-tls-verify={str(dest_tls_verify).lower()}")
+            print(f"--authfile={containers_config_auth_file}")
+            print(f'{pull_registry_type}{container_image_pull_address}')
+            print(f'{push_registry_type}{container_image_push_address_by_tag}')
+
             # push image
             sh.skopeo.copy( # pylint: disable=no-member
                 f"--src-tls-verify={str(source_tls_verify).lower()}",
